@@ -130,33 +130,3 @@ multi-agent-news-summarizer/
 | News Data | NewsAPI |
 | UI | Streamlit |
 | Language | Python 3.10+ |
-
----
-
-## 💡 Key Design Decisions
-
-**Why LangGraph over plain Python?**
-Conditional branching, automatic state merging, and easy extensibility. Adding a 5th agent requires just one `add_node` + `add_edge` call.
-
-**Why Groq?**
-800 tokens/second on Llama 3.3 70B — free tier, no billing. Ideal for projects and demos.
-
-**Why separate Categorizer and Summarizer agents?**
-Single responsibility. Mixing categorization logic into the summarizer creates prompt confusion and harder debugging.
-
-**Why batch categorization?**
-One API call for all articles instead of N calls = 10x faster, 10x cheaper in production.
-
----
-
-## 🔮 Future Improvements
-
-- [ ] Add streaming output (real-time token display)
-- [ ] Implement Map-Reduce for 100+ article summarization
-- [ ] Add memory across sessions (remember user preferences)
-- [ ] Email digest feature (send summary to inbox)
-- [ ] Deploy to Streamlit Cloud / HuggingFace Spaces
-
----
-
-*Built by Snehal Garg · VIT Bhopal · B.Tech CSE 2027*
